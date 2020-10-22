@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<launch> 
+  <!-- RVIZ -->
+  <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find aruco_test)/launch/aruco_test.rviz" /> -->
+
+  <node pkg="aruco_test" type="aruco_test" name="aruco_test" output="screen" >
+    <remap from="/image/raw" to="/imsee/image/left"/>
+  </node>  
+</launch>
