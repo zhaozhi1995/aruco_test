@@ -17,8 +17,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
 
-find_package(OpenCV 3.4 REQUIRED)
-
+find_package(OpenCV 3 REQUIRED)
 ## Uncomment this if the package has a setup.py. This macro ensures
 ## modules and global scripts declared therein get installed
 ## See http://ros.org/doc/api/catkin/html/user_guide/setup_dot_py.html
@@ -143,10 +142,10 @@ include_directories(
 # )
 
 add_executable(aruco_test src/aruco_test.cpp)
+target_link_libraries(aruco_test ${catkin_LIBRARIES} ${OpenCV_LIBS})
 
-#必须添加add_dependencies，否则找不到自定义的msg产生的头文件
-target_link_libraries(aruco_test ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
-
+add_executable(aruco_marker_generator src/aruco_marker_generator.cpp)
+target_link_libraries(aruco_marker_generator ${catkin_LIBRARIES} ${OpenCV_LIBS})
 #############
 ## Install ##
 #############
