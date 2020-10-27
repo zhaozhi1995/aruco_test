@@ -60,9 +60,10 @@ void aruco_marker_gengerate(int DICT, int id, const string& save_dir)
 	imshow("aruco marker image", markerImage);//ÏÔÊ¾marker
 
 	waitKey();
-cout << "0000000000" << endl;
 	imwrite(marker_save_dir + marker_image_name, markerImage);
 	ROS_INFO("%s saved in %s", marker_image_name, marker_save_dir.c_str());
+
+	cv::destroyAllWindows();
 }
 
 int main(int argc, char** argv)
@@ -99,7 +100,7 @@ int main(int argc, char** argv)
 
 	aruco_marker_gengerate(DICT_map.at(marker_DICT), marker_id, marker_save_dir);
 
-	ros::spin();
+	//ros::spin();
     return 0;
 }
 
