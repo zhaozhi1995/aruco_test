@@ -3,9 +3,10 @@
   <env name="ROSCONSOLE_CONFIG_FILE" value="$(find aruco_test)/config/log.conf"/>
   <node pkg="aruco_test" type="aruco_marker_generator" name="aruco_marker_generator" output="screen" >
     <param name="marker_save_dir" type="string" value="$(find aruco_test)/data/"/>
-    <param name="marker_id" type="int" value="11"/>
-    <param name="rowXcolumn" type="int" value="6"/>
+    <param name="marker_id" type="int" value="26"/>
+    <param name="rowXcolumn" type="int" value="5"/>
     <param name="marker_size" type="int" value="250"/>
+    <param name="marker_DICT" type="string" value="DICT_ARUCO_ORIGINAL"/>
   </node>  
 
 </launch>
