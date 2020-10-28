@@ -6,7 +6,7 @@
     <param name="marker_id" type="int" value="26"/>
     <param name="rowXcolumn" type="int" value="5"/>
     <param name="marker_size" type="int" value="250"/>
-    <param name="marker_DICT" type="string" value="DICT_ARUCO_ORIGINAL"/>
+    <!--<param name="marker_DICT" type="string" value="DICT_ARUCO_ORIGINAL"/> -->
   </node>  
 
 </launch>
