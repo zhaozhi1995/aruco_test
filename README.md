@@ -1,39 +1,40 @@
-# aruco_test
+﻿## Aruco Marker ROS demo
+调用opencv实现 Aruco Marker的生成，检测及定位。
+代码地址：[https://gitee.com/nie_xun/aruco_test.git](htts://gitee.com/nie_xun/aruco_test.git)
 
-#### 介绍
-{**以下是 Gitee 平台说明，您可以替换此简介**
-Gitee 是 OSCHINA 推出的基于 Git 的代码托管平台（同时支持 SVN）。专为开发者提供稳定、高效、安全的云端软件开发协作平台
-无论是个人、团队、或是企业，都能够用 Gitee 实现代码托管、项目管理、协作开发。企业项目请看 [https://gitee.com/enterprises](https://gitee.com/enterprises)}
+## 使用
+1. 源码下载编译
+```bash
+cd catkin_ws/src
+git clone https://gitee.com/nie_xun/aruco_test.git
+cd ..
+catkin_make
+```
+2. Aruco Marker生成
 
-#### 软件架构
-软件架构说明
+```bash
+roslaunch aruco_test aruco_marker_generator.launch
+```
+aruco_marker_generator.launch 中，根据需要设置以下参数。
+```xml
+<?xml version="1.0"?>
+<launch>
+  <env name="ROSCONSOLE_CONFIG_FILE" value="$(find aruco_test)/config/log.conf"/>
+  <node pkg="aruco_test" type="aruco_marker_generator" name="aruco_marker_generator" output="screen" >
+    <param name="marker_save_dir" type="string" value="$(find aruco_test)/data/"/>
+    <param name="marker_id" type="int" value="26"/>
+    <param name="rowXcolumn" type="int" value="5"/>
+    <param name="marker_size" type="int" value="250"/>
+    <!--<param name="marker_DICT" type="string" value="DICT_ARUCO_ORIGINAL"/>-->
+  </node>
+</launch>
+```
+3. Aruco Marker检测
 
+```bash
+#首先启动相机节点，在启动aruco_test
+roslaunch aruco_test aruco_test.launch
+```
+结果如下图：目前不能检测DICT_ARUCO_ORIGINAL
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20201028144247444.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTQ2OTI3Mg==,size_16,color_FFFFFF,t_70#pic_center)
 
-#### 安装教程
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 使用说明
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
-
-
-#### 特技
-
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
